@@ -1,0 +1,2 @@
+TEXT_LENGTH: int = 256
+POSTS_COUNT: int = 10
