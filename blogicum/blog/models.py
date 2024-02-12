@@ -6,7 +6,6 @@ from .const_nums import TEXT_LENGTH
 User = get_user_model()
 
 
-
 class BaseModel(models.Model):
     is_published = models.BooleanField(
         default=True,
