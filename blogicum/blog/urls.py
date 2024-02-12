@@ -30,11 +30,13 @@ post_urls = [
         views.add_comment,
         name='add_comment'
     ),
-    path('<int:post_id>/edit_comment/<int:comment_id>/',
+    path(
+        '<int:post_id>/edit_comment/<int:comment_id>/',
         views.edit_comment,
         name='edit_comment'
     ),
-    path('<int:post_id>/delete_comment/<int:comment_id>/',
+    path(
+        '<int:post_id>/delete_comment/<int:comment_id>/',
         views.delete_comment,
         name='delete_comment'
     ),
@@ -46,7 +48,8 @@ profile_urls = [
         views.edit_profile,
         name='edit_profile'
     ),
-    path('<slug:username>/',
+    path(
+        '<slug:username>/',
         views.profile,
         name='profile'
     ),
