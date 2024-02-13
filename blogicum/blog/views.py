@@ -1,13 +1,12 @@
 from datetime import datetime
 
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator
 from django.db.models import Count
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .const_nums import POSTS_COUNT
 from .forms import CommentForm, PostForm, UserForm
 from .models import Category, Comment, Post, User
+from .utils import get_paginator
 
 
 def get_posts(**kwargs):
@@ -17,13 +16,6 @@ def get_posts(**kwargs):
         'author'
     ).annotate(comment_count=Count('comments')
                ).filter(**kwargs).order_by('-pub_date')
-
-
-def get_paginator(request, queryset,
-                  number_of_pages=POSTS_COUNT):
-    paginator = Paginator(queryset, number_of_pages)
-    page_number = request.GET.get('page')
-    return paginator.get_page(page_number)
 
 
 def index(request):
